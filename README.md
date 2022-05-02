@@ -11,7 +11,7 @@ There are several actions that can be performed:
 - applyCalibrationSensorPollutantDillDf: this action allows applying a dill to test data int eh given itnerval saved in the database, generating a csv file with the                                              pollutant concentration for the given sensor. It is useful for testing the dills but it does not write the calibrated values in                                          the dataframe.
 - applyDillsToSensor: this action is the right way to apply the calirbation and save the calibrated values for all the pollutants in a unique row in the dataframe. Once                        all the models have been generated for a sensor a new row should be inserted in the sensor_calirbation table of the database with a reference to                        the models you are willing to use. Then the id of this row (id_calirbation) will be specified and all the calirbated observations with the                              pollutants concentration will refer to this specific calibration.
 
-## Generation of the models and applycation of them
+## Generation of the models and apply them
 
     Generate dill file for calibration, training, testing and tuning
   - _id_sensor_ The id of the sensors which is willing to be calibrated separeted by a - or all for all the available sensors.
