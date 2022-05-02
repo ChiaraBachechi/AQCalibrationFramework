@@ -1,7 +1,10 @@
 # AQCalibrationFramework
 A calibration framework that allows automatically calibration electrochemical air quality sensors. The models are generated in 2 ways: using csv data as input, reading directly from a postgreSQL database instance generated with the provided script.
 
-The framework allow users that have electrochemical sensors and legal station or laboratory data to generate a databse structure where to save their data and to generate the calibration models, and finally to apply them in oreder to obtain pollutants concentration.
+The framework allow users that have electrochemical sensors and legal station or laboratory measurements as reference data generating a calibration model for each sensor, and finally to apply it in oreder to obtain pollutants concentration. 
+
+The framework is based on a data structure that can be generated in the PostgreSQL DBMS executing the attached script. This data strucutre must be populated with sensors data and target measurements of pollutants concentration and takes trace of all the changes in the status of the sensors. The data collected in 'calibration' status are associated directly with the legal station data and the model is generated automatically given the calibration interval of time to consider. This data structure also allows associating the calibrated measurements with the description and parameters of the algorithm used to generate them. In this way, the results of different approaches are easy to compare. Moreover, when the model is applied the table sensor_calibrated_observation is directly populated with the predicted values.
+Alternatively, the framework can be used with 'csv' files but this is suggested only for teasting purpose since the user must take trace of all the changes in the sensor status, associate correctly the measurements of the sensors with the target measurements and compare the results of different approaches can be more difficult.
 
 There are several actions that can be performed:
 - trainAndSaveDillToFile: this action performs the training of the given model on the given period of time and create a dill file that is saved locally.
